@@ -1,3 +1,18 @@
+// Get the dynamic tile element
+const dynamicTile = document.getElementById('dynamicTile');
+
+// Listen for the scroll event
+window.addEventListener('scroll', function () {
+    // Check if the user has scrolled down by 200px
+    if (window.scrollY > 200) {
+        // Move the tile up into view
+        dynamicTile.style.bottom = '20px';
+    } else {
+        // Keep the tile below the screen if the user is at the top
+        dynamicTile.style.bottom = '-100px';
+    }
+});
+
 // Set up the ECG graph to be dynamic (simulated ECG pattern)
 
 const canvas = document.getElementById('ecg-graph');
