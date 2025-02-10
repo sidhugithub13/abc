@@ -1,26 +1,45 @@
-window.onload = function() {
-    // ECG Graph simulation using canvas
-    var canvas = document.getElementById('ecg-graph');
-    var ctx = canvas.getContext('2d');
-    
-    // Function to simulate ECG graph with a sine wave
-    function drawECG() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-        
-        var time = Date.now() / 1000;
-        var amplitude = 30;
-        var frequency = 2;
-        var phase = time * frequency;
-        
-        ctx.beginPath();
-        for (let x = 0; x < canvas.width; x++) {
-            let y = Math.sin(x * 0.05 + phase) * amplitude + 70;
-            ctx.lineTo(x, y);
-        }
-        ctx.strokeStyle = "#00FF00";  // Green color for the ECG
-        ctx.stroke();
+// Set up the ECG graph to be dynamic (simulated ECG pattern)
+
+const canvas = document.getElementById('ecg-graph');
+const ctx = canvas.getContext('2d');
+
+// Initial configuration
+const width = canvas.width = 600;
+const height = canvas.height = 120;
+const lineWidth = 2;
+let x = 0; // Start x position
+let y = height / 2; // Start y position (center of the canvas)
+
+// Simulated ECG values for demonstration
+const ecgPattern = [
+    -20, 30, 50, 60, 50, 30, 0, -30, -50, -60, -50, -30, 0, 30, 50, 60, 50, 30
+];
+
+// Function to draw the ECG graph
+function drawECG() {
+    ctx.clearRect(0, 0, width, height); // Clear the canvas
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+
+    // Generate the ECG wave
+    for (let i = 0; i < ecgPattern.length; i++) {
+        const point = ecgPattern[i];
+        const ecgX = (x + i) % width; // Keep it within the canvas width
+        const ecgY = height / 2 + point; // Adjust the y position based on the pattern
+        ctx.lineTo(ecgX, ecgY);
     }
-    
-    // Set interval for ECG simulation
-    setInterval(drawECG, 100);
-};
+
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = 'red'; // Red ECG line
+    ctx.stroke();
+
+    x += 1; // Move the x position for the next frame
+    if (x > width) {
+        x = 0; // Reset the x position when it goes off-screen
+    }
+
+    requestAnimationFrame(drawECG); // Call the function again to animate
+}
+
+// Start the ECG animation
+drawECG();
