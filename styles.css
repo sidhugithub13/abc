@@ -100,3 +100,21 @@ h1 {
     margin-top: 10px;
     border-radius: 8px;
 }
+
+/* Dynamic Tile at the bottom */
+.dynamic-tile {
+    position: fixed;
+    bottom: -100px; /* Initially positioned below the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    transition: bottom 0.5s ease-out;
+}
