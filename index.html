@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT based Health Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>IoT based Health Monitoring System</h1>
+    </header>
+    
+    <div class="container">
+        <!-- Patient and Doctor Info Tile -->
+        <div class="patient-info">
+            <h2>Patient Details</h2>
+            <p>Name: John Doe</p>
+            <p>Age: 45</p>
+            <p>Contact: +123 456 7890</p>
+            <h3>Doctor's Details</h3>
+            <p>Name: Dr. Smith</p>
+            <p>Contact: +987 654 3210</p>
+        </div>
+
+        <!-- Vital Signs -->
+        <div class="vital-signs">
+            <div class="tile">
+                <div class="icon">❤️</div>
+                <p>Heart Rate: 75 bpm</p>
+            </div>
+            <div class="tile">
+                <div class="icon">💨</div>
+                <p>Blood Oxygen: 98%</p>
+            </div>
+            <div class="tile">
+                <div class="icon">🌡️</div>
+                <p>Body Temp: 98.6°F</p>
+            </div>
+            <div class="tile smaller">
+                <div class="icon">💓</div>
+                <p>Pulse: 72</p>
+            </div>
+            <div class="tile smaller">
+                <div class="icon">💧</div>
+                <p>Humidity: 60%</p>
+            </div>
+            <div class="tile smaller">
+                <div class="icon">📉</div>
+                <p>ECG Value</p>
+                <div id="ecg-graph"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
